@@ -92,7 +92,7 @@ public class Stack<T> implements StackIF<T> {
      *             if the stack is empty
      */
     public T top() {
-        throw new UnsupportedOperationException();
+        return stack.get(stack.size() - 1);
     }
 
     /**
@@ -128,11 +128,11 @@ public class Stack<T> implements StackIF<T> {
     public String toString() {
         String stackToString = "Stack[";
         if(stack.size() == 0) {
-        	stackToString += "]";
+        	stackToString += "]"; /* If the stack is empty, just end the string */
         } else {
         	for(int i = 0; i < stack.size(); i++) {
-            	if(i == stack.size() - 1) {
-            		stackToString += stack.get(i) + "]";
+            	if(i == stack.size() - 1) { /* Check if i is the last item in the stack */
+            		stackToString += stack.get(i) + "]"; /* If it is then end the string after i*/
             	} else {
             		stackToString += stack.get(i) + ", ";
             	}
