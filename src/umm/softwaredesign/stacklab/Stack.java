@@ -75,7 +75,12 @@ public class Stack<T> implements StackIF<T> {
      *             if the stack is empty
      */
     public T pop() {
-        throw new UnsupportedOperationException();
+    	if(count == 0) {
+    		throw new StackUnderflowException();
+    	} else {
+    		count--;
+    		return stack.remove(stack.size() - 1);
+    	}
     }
 
     /**
@@ -99,7 +104,16 @@ public class Stack<T> implements StackIF<T> {
      *         elements
      */
     public boolean hasElements(List<T> items) {
-        throw new UnsupportedOperationException();
+        if(stack.size() != items.size()) { /* Determine if stack and list are same size */
+        	return false;
+        } else {
+        	for(int i = 0; i < stack.size(); i++) {
+        		if(stack.get(i) != items.get(i)){  /* If they are the same size, go through each */
+        			return false;				   /* element until there isn't a match */
+        		}
+        	}
+        	return true;  /* If the for loop is completed then all elements are the same */
+        }
     }
 
     /**
