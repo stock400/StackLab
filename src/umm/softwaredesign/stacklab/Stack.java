@@ -1,8 +1,11 @@
 package umm.softwaredesign.stacklab;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import umm.softwaredesign.stacklab.StackIF;
+
+/* Brandon Stock */
 
 /**
  * Implementation of the StackIF interface for a basic stack.
@@ -12,11 +15,13 @@ import umm.softwaredesign.stacklab.StackIF;
  * @version $Revision: 1.16 $
  */
 public class Stack<T> implements StackIF<T> {
+	private int count = 0;
+	private ArrayList<T> stack;
     /**
      * Construct an empty stack.
      */
     public Stack() {
-        throw new UnsupportedOperationException();
+        stack = new ArrayList<T>();
     }
 
     /**
@@ -28,7 +33,8 @@ public class Stack<T> implements StackIF<T> {
      *            the list of items to initialize the stack
      */
     public Stack(List<T> items) {
-        throw new UnsupportedOperationException();
+    	stack = (ArrayList<T>)items;
+    	count = items.size();
     }
 
     /**
@@ -37,7 +43,7 @@ public class Stack<T> implements StackIF<T> {
      * @return the number of elements on the stack
      */
     public int size() {
-        throw new UnsupportedOperationException();
+        return count;
     }
 
     /**
@@ -46,7 +52,7 @@ public class Stack<T> implements StackIF<T> {
      * @return true if the stack is empty, false otherwise
      */
     public boolean isEmpty() {
-        throw new UnsupportedOperationException();
+        return count == 0;
     }
 
     /**
@@ -56,7 +62,8 @@ public class Stack<T> implements StackIF<T> {
      *            the value to be pushed.
      */
     public void push(T value) {
-        throw new UnsupportedOperationException();
+        stack.add(value);
+        count++;
     }
 
     /**
