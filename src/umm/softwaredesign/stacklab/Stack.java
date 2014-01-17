@@ -126,6 +126,18 @@ public class Stack<T> implements StackIF<T> {
      */
     @Override
     public String toString() {
-        throw new UnsupportedOperationException();
+        String stackToString = "Stack[";
+        if(stack.size() == 0) {
+        	stackToString += "]";
+        } else {
+        	for(int i = 0; i < stack.size(); i++) {
+            	if(i == stack.size() - 1) {
+            		stackToString += stack.get(i) + "]";
+            	} else {
+            		stackToString += stack.get(i) + ", ";
+            	}
+            }
+        }
+        return stackToString;
     }
 }
